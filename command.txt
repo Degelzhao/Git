@@ -1,0 +1,56 @@
+part 1:
+1.mkdir + <filename>:新建文件夹
+2.touch + <filename>: 新建一个文件
+3.vi + <filename>:新建一个文件并进入编辑状态
+4.git init:将目录变成git可以管理的仓库
+5.git add .:将当前目录及其子目录的文件都加入到暂存区
+6.git add <directory name>:将此目录下及其子目录中的文件都加入到暂存区
+7.git add <file1> <file2>:将这两个file加入到暂存区
+8.git commit -m "<commit>":将暂存区的改动提交到版本库
+
+part 2:
+1.git log:查看历史记录
+2.git log --pretty=oneline:查看历史记录精简版
+3.git reset --hard HEAD^:回退到上一个版本
+4.git reset --hard <commit id>:回退到某一个版本
+5.git reflog:可以查看所有分支的所有操作记录，包括已经被删除的commit记录，git log 不能查看已经删除了的commit记录
+6.git status:用于显示工作目录及暂存区的状态
+7.git diff HEAD -- <filename>:查看工作区和版本库里面最新版本的区别
+8.git checkout -- <filename>:撤销工作区的修改
+9.git reset HEAD <fliename>:撤销到暂存区的修改，并退回工作区
+10.rm -rf <filename>:强制删除文件
+11.git rm <filename>:从版本库中删除文件,然后再commit
+12.git log --graph --pretty=oneline --abbrev-commit：查看分支的合并情况
+
+part 3:
+1.git remote -v:查看远程仓库信息
+2.git remote add origin URL:添加远程仓库
+3.git push -u origin master:推送本地内容到远程仓库，-u:关联远程master分支
+4.git clone URL:从远程克隆一个本地库
+5.git branch --set-upstream-to <branch name> origin/<branch name>:创建本地分支和远程分支的链接
+
+part 4:
+1.git checkout -b <branch name>:创建并切换分支
+2.git branch:查看当前分支
+3.git merge <need merge branch to another branch>:合并分支
+4.git branch -d <branch name>:删除合并过的分支
+5.git branch -D <branch name>:删除未合并的分支
+6.git merge --no-ff -m "commit" <branch name>:合并分支并且禁用Fast forward
+7.git stash:储存现场
+8.git stash list:查看储存的工作现场
+9.git stash apply stash{}:只是恢复指定的现场工作
+10.git stash pop stash{}:恢复指定的现场工作并删除stash对应的内容
+11.git push origin <branch name>:推送分支到远程版本库
+12.git pull:从远程库提取最新的内容
+13.git rebase -i [startpoint] [endpoint]：将某些commit合并，注意此处时前开后闭
+14.git rebase [startpoint] [endpoint] --onto [branchname]：将该提交复制到哪个分支上
+15.git push origin master -f：本地强制上传到远程，把远程的覆盖
+
+part 5:
+1.git tag <tagname>：用于新建一个标签，默认为HEAD，也可以指定一个commit id
+2.git tag -a <tagname> -m “the commit”：可以在创建标签时添加标签信息
+3.git log：查看所有标签
+4.git push origin <tagname>：推送一个本地标签到GitHub
+5.git push origin --tags：推送全部未推送过的本地标签
+6.git tag -d <tagname>：删除一个本地标签
+7.git push origin :refs/tags/<tagname>：删除一个远程标签
